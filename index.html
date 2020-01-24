@@ -24,48 +24,7 @@
     <div>Tax {{ moneyFormat(tax) }}</div>
     <div>Total {{ moneyFormat(total) }}</div>
     <accordion v-for="item in items" :item="item" :key="item.id"></accordion>
+    <script src="dist/app.js"></script>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
-    Vue.component('accordion', {
-      props: ['item'],
-      template: `<div>
-      <p>{{ item.text }}</p>
-      <p @click=" toggle = !toggle">Details</p>
-      <p v-if="toggle">{{ item.checked }}</p>
-      </div>`,
-      data: function () {
-        return {
-          toggle: false
-          }
-      }
-    })
-    new Vue({
-      el: '#app',
-      data: {
-        item: '',
-        items: [
-          {text:'item1', checked: true, id: 1}, 
-          {text:'item2', checked: false, id: 2},
-          {text: 'item3', checked: true, id: 3}],
-        hidden: false,
-        price: 100,
-      },
-      computed: {
-        tax: function () {
-          return this.price * 0.1;
-        },
-        total: function () {
-          return parseInt(this.price) + parseInt(this.tax);
-        },
-      },
-      methods: {
-        moneyFormat: function (price) {
-          return '$' + price;
-        }
-      }
-
-    });
-  </script>
 </body>
 </html>
