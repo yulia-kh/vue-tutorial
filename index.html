@@ -3,28 +3,15 @@
   <meta charset="utf-8">
 
   <title>vue practice</title>
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
 
 </head>
 
 <body>
   <div id="app">
-    <h1 v-if="hidden">Todo</h1>
-    <h2 v-else>Not todo</h2>
-    <ul>
-      <li v-for="item in items">
-        {{ item.text }}
-        <div v-if="item.checked">Checked!</div>
-        <button @click="item.checked = !item.checked">Toggle</button>
-      </li>
-    </ul>
-    <input type="text" v-model="item"></input>
-    <button @click="items.push({text: item, checked: true})">Add todo</button>
-    <input type="text" v-model="price">
-    <div>Tax {{ moneyFormat(tax) }}</div>
-    <div>Total {{ moneyFormat(total) }}</div>
+    <h1>Todo</h1>
     <accordion v-for="item in items" :item="item" :key="item.id"></accordion>
-    <script src="dist/app.js"></script>
+    <list></list>
   </div>
+  <script src="./dist/app.js"></script>
 </body>
 </html>
